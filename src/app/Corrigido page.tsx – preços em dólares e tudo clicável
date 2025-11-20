@@ -14,28 +14,28 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-16 px-4">
       <div className="max-w-7xl mx-auto text-center">
-        <h1 className="text-6xl font-bold mb-6">NutriOne</h1>
-        <p className="text-2xl text-gray-700 mb-12">Todos os preços em dólares americanos ($ USD) · Trial de 5 dias nos planos Pro e Premium</p>
+        <h1 className="text-6xl font-bold mb-6 text-green-800">NutriOne</h1>
+        <p className="text-2xl text-gray-700 mb-12">Todos os preços em dólares americanos ($ USD) · Trial de 5 dias</p>
 
-        <div className="inline-flex rounded-full bg-gray-100 p-1 mb-16">
-          <button onClick={() => setBilling('monthly')} className={`px-10 py-4 rounded-full font-bold transition ${billing === 'monthly' ? 'bg-green-600 text-white' : 'text-gray-600'}`}>
+        <div className="inline-flex rounded-full bg-gray-100 p-1 mb-16 shadow-lg">
+          <button onClick={() => setBilling('monthly')} className={`px-12 py-4 rounded-full font-bold transition ${billing === 'monthly' ? 'bg-green-600 text-white' : 'text-gray-600'}`}>
             Mensal
           </button>
-          <button onClick={() => setBilling('yearly')} className={`px-10 py-4 rounded-full font-bold transition ${billing === 'yearly' ? 'bg-green-600 text-white' : 'text-gray-600'}`}>
+          <button onClick={() => setBilling('yearly')} className={`px-12 py-4 rounded-full font-bold transition ${billing === 'yearly' ? 'bg-green-600 text-white' : 'text-gray-600'}`}>
             Anual (2 meses grátis)
           </button>
         </div>
 
         <div className="grid md:grid-cols-3 gap-12">
           {plans.map((plan) => (
-            <div key={plan.name} className={`relative bg-white rounded-3xl p-12 shadow-2xl border-4 transition-all ${plan.popular ? 'border-green-500 scale-105' : 'border-gray-200'}`}>
+            <div key={plan.name} className={`relative bg-white rounded-3xl p-12 shadow-2xl border-4 transition-all hover:shadow-3xl ${plan.popular ? 'border-green-500 scale-105' : 'border-gray-200'}`}>
               {plan.popular && (
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-green-600 based text-white px-10 py-3 rounded-full text-xl font-bold">
+                <div className="absolute -top-6 left-1/2 -translate- x-1/2 bg-green-600 text-white px-10 py-3 rounded-full text-xl font-bold shadow-lg">
                   MAIS POPULAR
                 </div>
               )}
-              <h2 className="text-4xl font-bold mb-8">{plan.name}</h2>
-              <div className="text-6xl font-bold mb-10">
+              <h2 className="text-4xl font-bold mb-8 text-gray-800">{plan.name}</h2>
+              <div className="text-6xl font-bold mb-10 text-green-600">
                 {billing === 'monthly' ? plan.monthly : plan.yearly}
                 <span className="text-2xl font-normal text-gray-500">/{billing === 'monthly' ? 'mês' : 'ano'}</span>
               </div>
@@ -47,7 +47,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-green-600 text-white text-2xl font-bold py-6 rounded-2xl hover:bg-green-700 transition">
+              <button className="w-full bg-green-600 text-white text-2xl font-bold py-6 rounded-2xl hover:bg-green-700 transition shadow-lg">
                 Escolher {plan.name}
               </button>
             </div>
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
 
         <p className="mt-20 text-gray-500 text-lg">
-          NutriOne não substitui aconselhamento médico profissional. Consulte sempre o seu nutricionista ou médico.
+          NutriOne não substitui aconselhamento médico profissional. Consulte sempre o seu médico ou nutricionista.
         </p>
       </div>
     </div>
